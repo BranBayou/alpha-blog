@@ -5,14 +5,15 @@ class ArticlesController < ApplicationController
   end
 
   def create
-     @article = Article.new(article_params)
-     if @article.save
+    @article = Article.new(article_params)
+    if @article.save
       flash[:notice] = "Article was created successfully"
       redirect_to article_path(@article)
-     else
-      redirect_to new_article_path
-     end
+    else
+      render 'new', status: :unprocessable_entity
+    end
   end
+  
 
   def show
     @article = Article.find(params[:id])
