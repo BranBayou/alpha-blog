@@ -71,3 +71,5 @@ group :test do
 
 end
 gem 'rake'
+
+gem 'jquery-rails'
